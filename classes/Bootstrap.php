@@ -1,4 +1,5 @@
 <?php
+//errtelmes
 class Bootstrap{
     function __construct(){
         $hiba = [];
