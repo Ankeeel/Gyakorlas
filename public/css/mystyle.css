@@ -1,0 +1,12 @@
+.nav{
+    position: fixed;
+    background-color: red;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+.container{
+    top: 20px;
+    position: relative;
+}
