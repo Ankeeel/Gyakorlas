@@ -1,7 +1,7 @@
 <?php
 
 
-class Dashboard extends Base{
+class DashboardController extends BaseController{
 
     function __construct()
     {
@@ -20,5 +20,4 @@ class Dashboard extends Base{
         Session::destroy();
         header('Location: /login');
     }
-    
 }

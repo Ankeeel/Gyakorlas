@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 
 //Új class esetén itt hívom meg (include)
-include 'controllers/Base.php';
+include 'controllers/BaseController.php';
 include 'classes/Database.php';
 include 'classes/Model.php';
 include 'classes/Bootstrap.php';

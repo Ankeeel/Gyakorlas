@@ -1,5 +1,5 @@
 <?php
-class Register extends Base
+class RegisterController extends BaseController
 {
     public function __construct(){
         parent::__construct();

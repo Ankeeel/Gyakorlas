@@ -1,6 +1,6 @@
 <?php
 
-class Base
+class BaseController
 {
     public $model;
     
