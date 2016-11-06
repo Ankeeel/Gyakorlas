@@ -6,12 +6,14 @@ class Bootstrap{
         $url = isset($_GET['_url'])?$_GET["_url"]:null;
         $url = explode('/',$url);
         if(isset($url[1])&& !empty($url[1])){
-            if(file_exists('controllers/'.$url[1].'.php')) {
+            if(file_exists('controllers/'.$url[1].'Controller.php')) {
 
 
-                include 'controllers/' . $url[1] . '.php'; //betöltjük a controllert
+                include 'controllers/' . $url[1] . 'Controller.php'; //betöltjük a controllert
 
-                $controller = new $url[1](); // példányosítjuk azt
+                $c = $url[1].'Controller';
+
+                $controller = new $c(); // példányosítjuk azt
                 $controller->loadModel($url[1]);
 
                     if (isset($url[2]) && !empty($url[2])) { //megvizsgáljuk ,hogy van-e 2. url paraméter
