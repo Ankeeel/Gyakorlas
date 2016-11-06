@@ -40,8 +40,18 @@ $('#pass2').keyup(function() {
 
 });
 
-$('#email').keyup(function() {
-    $.ajax();
-
-
+$('#email').keyup(function(){
+    var url = "/register/checkuser";
+    var data = {name : this.value};
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: data
+    }).done(function (data) {
+        if(data == 'ok'){
+            $("#email").css("background-color", "#62f442");
+        }else{
+            $("#email").css("background-color", "#f47442");
+        }
+    });
 });

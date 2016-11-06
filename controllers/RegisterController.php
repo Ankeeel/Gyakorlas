@@ -6,12 +6,18 @@ class RegisterController extends BaseController
         if(Session::get('logged')){
             header('Location: /dashboard');
         }
-       $this->view->render('register',true);
+    }
+    public function index(){
+        $this->view->render('register',true);
     }
 
     public function bekuld(){
         $this->model->regsave();
         
+    }
+
+    public function checkUser(){
+       echo 'ok';die;
     }
     
     
