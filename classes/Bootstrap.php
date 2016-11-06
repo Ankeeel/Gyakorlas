@@ -18,9 +18,12 @@ class Bootstrap{
 
                     if (isset($url[2]) && !empty($url[2])) { //megvizsgáljuk ,hogy van-e 2. url paraméter
                         if(method_exists($controller,$url[2])) { //megvizsgáljuk ,hogy létezik -e az az action amit hívni próbálunk
-                            $controller->{$url[2]}();
+
                             if (isset($url[3]) && !empty($url[3])) {
                                 $controller->{$url[2]}($url[3]);
+                            }
+                            else{
+                                $controller->{$url[2]}();
                             }
                         }else{
                             $hiba[] = 'nemlétező method';
