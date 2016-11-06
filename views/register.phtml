@@ -4,10 +4,10 @@
 </head>
 <body>
 <form action="/register/bekuld" method="post">
-    Name: <input type="text" name="name"><br>
-    E-mail: <input type="text" name="email"><br>
-    Password: <input type="password" name="pass"><br>
-    Password újra: <input type="password" name="pass2"><br>
+    Name: <input onchange="nev();" type="text" id="name" name="name"><br>
+    E-mail: <input type="text" id="email" name="email"><br>
+    Password: <input type="password" id="pass" name="pass"><br>
+    Password újra: <input type="password" id="pass2" name="pass2"><br>
     <input type="submit">
 </form>
 <a href="/login" type="button" class="btn btn-default navbar-btn">Login</a>
@@ -15,6 +15,7 @@
 
 <script src="/public/js/jquery-3.1.1.min.js"></script>
 <script src="/public/js/bootstrap.min.js"></script>
+<script src="/public/js/check.js"></script>
 
 
 </body>
