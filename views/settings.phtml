@@ -4,13 +4,16 @@
 </head>
 <body>
 <form action="/settings/bekuld" method="post">
-    Lakhely: <input type="text" name="city"><br>
-    Munka: <input type="text" name="job"><br>
-    Iskola: <input type="text" name="school"><br>
-    Családi állapot: <input type="text" name="relationship"><br>
+
+
+    Lakhely: <input type="text" name="city" value="<?=$this->adat['city'];?>"><br>
+    Munka: <input type="text" name="job" value="<?=$this->adat['job'];?>"><br>
+    Iskola: <input type="text" name="school" value="<?=$this->adat['school'];?>"><br>
+    Családi állapot: <input type="text" name="relationship" value="<?=$this->adat['relationship'];?>"><br>
+
+
     <input type="submit">
 </form>
-
 
 <script src="/public/js/jquery-3.1.1.min.js"></script>
 <script src="/public/js/bootstrap.min.js"></script>
