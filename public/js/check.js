@@ -1,5 +1,3 @@
-var lass = $('.classnev');
-var id = $('#idnev');
-$('#name').change(function(){
+$('#name').keyup(function(){
     console.log(this);
 });
