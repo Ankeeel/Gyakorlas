@@ -4,7 +4,10 @@
 class SettingsModel extends Model
 {
     public function settingsSave (){
-        $stmt = $this->db->prepare("UPDATE users SET city=:city,school=:school,job=:job,relationship=:relationship WHERE id=:id;");
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE id=:id");
+        $stmt->execute(array('id'=>Session::get('user')));
+
+        $stmt = $this->db->prepare("INSERT INTO persetting (city,school,job,relationship) VALUES (:city,:school,:job,:relationship)");
         $stmt->execute(array(
         'city' => $_POST['city'],
         'school' => $_POST['school'],
