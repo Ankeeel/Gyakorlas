@@ -8,7 +8,7 @@ class RegisterModel extends Model
 
         $stmt = $this->db->prepare("SELECT * FROM users WHERE email =:email");
         $stmt->execute(array(
-            'email' => $_POST['email'],
+            'email' => $_POST['email']
         ));
         $hiba = false;
         if($stmt->rowCount() > 0){
@@ -30,5 +30,17 @@ class RegisterModel extends Model
             ));
             header('Location: /login');
         }
+    }
+
+    public function check ($email){
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE email =:email");
+        $stmt->execute(array(
+            'email' => $email
+        ));
+        $hiba = false;
+        if($stmt->rowCount() > 0){
+            $hiba = true;
+        }
+        return $hiba;
     }
 }

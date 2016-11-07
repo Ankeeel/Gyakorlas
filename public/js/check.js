@@ -4,10 +4,13 @@ $('#name').keyup(function() {
         $('.err_name').html('hosszhiba');
         console.log(this.value.length);
         $("#name").css("background-color", "#f47442");
+        $('#gomb').prop('disabled', true);
     }
     else{
        // $('.err_name').hide();
+        $('#gomb').prop('disabled', false);
         $("#name").css("background-color", "#62f442");
+
     }
 
 });
@@ -18,10 +21,13 @@ $('#pass').keyup(function() {
         $('.err_pass').html('hosszhiba');
         console.log(this.value.length);
         $("#pass").css("background-color", "#f47442");
+        $('#gomb').prop('disabled', true);
     }
     else{
       //  $('.err_pass').hide();
+        $('#gomb').prop('disabled', false);
         $("#pass").css("background-color", "#62f442");
+
     }
 
 });
@@ -32,9 +38,11 @@ $('#pass2').keyup(function() {
         $('.err_pass2').html('nem azonos');
         console.log(this.value.length);
         $("#pass2").css("background-color", "#f47442");
+        $('#gomb').prop('disabled', true);
     }
     else{
         // $('.err_pass2').hide();
+        $('#gomb').prop('disabled', false);
         $("#pass2").css("background-color", "#62f442");
     }
 
@@ -42,7 +50,7 @@ $('#pass2').keyup(function() {
 
 $('#email').keyup(function(){
     var url = "/register/checkuser";
-    var data = {name : this.value};
+    var data = {email : this.value};
     $.ajax({
         type: "POST",
         url: url,
@@ -50,8 +58,10 @@ $('#email').keyup(function(){
     }).done(function (data) {
         if(data == 'ok'){
             $("#email").css("background-color", "#62f442");
+            $('#gomb').prop('disabled', false);
         }else{
             $("#email").css("background-color", "#f47442");
+            $('#gomb').prop('disabled', true);
         }
     });
 });

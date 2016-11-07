@@ -17,7 +17,13 @@ class RegisterController extends BaseController
     }
 
     public function checkUser(){
-       echo 'ok';die;
+       if($this->model->check($_POST['email'])){
+           echo 'hiba';
+       }
+        else{
+            echo 'ok';
+        }
+
     }
     
     
