@@ -5,9 +5,19 @@
 <body>
 
 
-<a>Lakhely: </a><?=$this->adat['city'];?></br>
-<a>Iskola: </a><?=$this->adat['school'];?></br>
-<a>Munkahely: </a><?=$this->adat['job'];?></br>
+<a>Lakhely: </a></br>
+<a>Iskola: </a></br>
+<a>Munkahely: </a></br>
 <a>Kapcsolati státusz: </a></br>
+
+<form action="/profile/like" method="post">
+    <input value="Like" type="submit">
+</form>
+
+<form action="/profile/dislike" method="post">
+    <input value="dislike" type="submit">
+</form>
+
+    <a>Index:</a>
 </body>
 </html>
