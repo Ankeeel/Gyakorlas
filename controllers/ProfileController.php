@@ -7,13 +7,10 @@ class ProfileController extends BaseController {
         $adatok = $this->model->personalData($id);
         $this->view->adat = $adatok;
         $this->view->render('profile');
-       /* if($name){
+    }
 
-        }
-        else {
-
-        }*/
-
+    public function like($id=false){
+        $this->model->like($id);
     }
 
 }

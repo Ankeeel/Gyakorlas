@@ -27,7 +27,20 @@ class RegisterModel extends Model
                 'username' => $_POST['name'],
                 'email' => $_POST['email'],
                 'pass' => $_POST['pass'],
+
             ));
+            $stmt = $this->db->prepare("INSERT INTO persetting (city,school,job,userId,gender,bday,looking,tol,ig)VALUES (:city,:school,:job,:userId,:gender,:bday,:looking,:tol,:ig)");
+            $stmt->execute(array(
+                'city' => '',
+                'school' => '',
+                'job' => '',
+                'gender' => $_POST['gender'],
+                'bday'=> $_POST['bday'],
+                'looking'=> $_POST['looking'],
+                'tol'=> $_POST['tol'],
+                'ig'=> $_POST['ig'],
+                'userId' => $this->db->lastInsertId()
+        ));
             header('Location: /login');
         }
     }
