@@ -5,22 +5,6 @@ class SettingsModel extends Model
 {
     public function settingsSave()
     {
-        $stmt = $this->db->prepare("SELECT * FROM users WHERE email =:email");
-        $stmt->execute(array(
-            'email' => $_POST['email']
-        ));
-        $hiba = false;
-        if ($stmt->rowCount() > 0) {
-            $hiba = true;
-        }
-
-
-        if ($_POST['pass'] != $_POST['pass2']) {
-
-            echo "Nem egyezik a password!";
-        } elseif ($hiba) {
-            echo 'Használt e-mail cím!';
-        } else {
             $stmt = $this->db->prepare("UPDATE users SET username=:username,email=:email,pass=:pass WHERE id=:id ");
             $stmt->execute(array(
                 'username' => $_POST['username'],
@@ -42,15 +26,13 @@ class SettingsModel extends Model
                 'ig' => $_POST['ig'],
                 'userId' => Session::get('user')
             ));
-            die(var_dump('asd'));
             header('Location: /settings/personalsetting');
-        }
     }
 
         function personalData()
         {
-            $stmt = $this->db->prepare("SELECT * FROM users WHERE id=:id ");
+            $stmt = $this->db->prepare("SELECT * FROM users , persetting WHERE id=:id AND userId = id ");
             $stmt->execute(array('id' => Session::get('user')));
-            return $stmt->fetch();
+            return $stmt->fetchObject();
         }
 }
