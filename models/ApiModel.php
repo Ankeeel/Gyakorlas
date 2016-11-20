@@ -15,11 +15,16 @@ class ApiModel extends Model
     }
 
     public function search (){
+        if(!empty($_POST['search'])){
+            $search = $_POST['search'];
+            $stmt = $this->db->prepare("SELECT username,id FROM users WHERE username LIKE :username LIMIT 10");
+            $stmt->execute(array(
+                'username' => '%'.$search.'%'
+            ));
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }else{
+            return "";
+        }
 
-        $stmt = $this->db->prepare("SELECT username,id FROM users WHERE username LIKE :username");
-        $stmt->execute(array(
-            'username' => '%'.$_POST['search'].'%'
-        ));
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

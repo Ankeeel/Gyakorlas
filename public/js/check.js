@@ -93,6 +93,10 @@ $('#search').keyup(function(){
         url: url,
         data: search
     }).done(function (data) {
-        console.log(data);
+        $('#results').empty();
+        data = JSON.parse(data);
+        for(var i = 0;i<data.length;i++){
+            $('#results').append('<a href="/profile/edit/'+data[i].id+'">'+data[i].username+'</a><br/>');
+        }
     });
 });

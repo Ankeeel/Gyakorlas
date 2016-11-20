@@ -34,13 +34,13 @@
                 tól
                 <select name="tol">
                     <?php for ($i = 18; $i <= 100; $i++): ?>
-                        <option value="<?= $i ?>"><?= $i ?></option>
+                        <option <?=$this->adatok->tol == $i?'selected':''?> value="<?= $i ?>"><?= $i ?></option>
                     <?php endfor; ?>
                 </select>
                 -
                 <select name="ig">
                     <?php for ($i = 18; $i <= 100; $i++): ?>
-                        <option value="<?= $i ?>"><?= $i ?></option>
+                        <option  <?=$this->adatok->ig == $i?'selected':''?> value="<?= $i ?>"><?= $i ?></option>
                     <?php endfor; ?>
                 </select>
                 ig
