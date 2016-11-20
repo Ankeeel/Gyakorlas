@@ -13,6 +13,6 @@ class Model
     {
         $stmt = $this->db->prepare("SELECT * FROM gender");
         $stmt->execute();
-        return (object)$stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

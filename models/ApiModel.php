@@ -13,4 +13,13 @@ class ApiModel extends Model
         }
         return $hiba;
     }
+
+    public function search (){
+
+        $stmt = $this->db->prepare("SELECT username,id FROM users WHERE username LIKE :username%");
+        $stmt->execute(array(
+            'username' => $_POST['%'.'$search'.'%']
+        ));
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

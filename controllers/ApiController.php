@@ -2,12 +2,18 @@
 
 class ApiController extends BaseController
 {
-    public function checkUser(){
-        if($this->model->check($_POST['email'])){
+    public function checkUser()
+    {
+        if ($this->model->check($_POST['email'])) {
             echo 'hiba';
-        }
-        else{
+        } else {
             echo 'ok';
         }
+    }
+
+    public function search()
+    {
+        $users = $this->model->search();
+        echo json_encode($users);
     }
 }

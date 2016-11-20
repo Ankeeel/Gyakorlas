@@ -84,3 +84,15 @@ $('#email').keyup(function(){
         });
 
 });
+
+$('#search').keyup(function(){
+    var url = "/api/search";
+    var search = {search : this.value};
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: search
+    }).done(function (data) {
+        console.log(data);
+    });
+});
