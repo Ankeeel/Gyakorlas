@@ -13,7 +13,7 @@ class DashboardController extends BaseController{
     function index(){
         $adatok = $this->model->lista();
         $this->view->adat = $adatok;
-        $this->view->render('index');
+        $this->view->render('dashboard');
     }
     
     public function logout(){
