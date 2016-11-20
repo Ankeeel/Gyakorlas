@@ -16,9 +16,9 @@ class ApiModel extends Model
 
     public function search (){
 
-        $stmt = $this->db->prepare("SELECT username,id FROM users WHERE username LIKE :username%");
+        $stmt = $this->db->prepare("SELECT username,id FROM users WHERE username LIKE :username");
         $stmt->execute(array(
-            'username' => $_POST['%'.'$search'.'%']
+            'username' => '%'.$_POST['search'].'%'
         ));
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
