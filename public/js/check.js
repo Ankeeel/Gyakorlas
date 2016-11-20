@@ -49,19 +49,38 @@ $('#pass2').keyup(function() {
 });
 
 $('#email').keyup(function(){
-    var url = "/register/checkuser";
-    var data = {email : this.value};
-    $.ajax({
-        type: "POST",
-        url: url,
-        data: data
-    }).done(function (data) {
-        if(data == 'ok'){
-            $("#email").css("background-color", "#62f442");
-            $('#gomb').prop('disabled', false);
-        }else{
-            $("#email").css("background-color", "#f47442");
-            $('#gomb').prop('disabled', true);
-        }
-    });
+    if(this.value.indexOf('@') === -1 ){
+        $("#email").css("background-color", "#f47442");
+        $('#gomb').prop('disabled', true);
+        return false;
+    }
+  if(this.value.indexOf('.') === -1 ){
+      $("#email").css("background-color", "#f47442");
+      $('#gomb').prop('disabled', true);
+     return false;
+  }
+    var string = this.value.split('.');
+    console.log(string[1].length);
+    if(string[1].length < 2 ){
+        $("#email").css("background-color", "#f47442");
+        $('#gomb').prop('disabled', true);
+        return false;
+    }
+        var url = "/Api/checkuser";
+        var data = {email : this.value};
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data
+        }).done(function (data) {
+
+            if(data == 'ok'){
+                $("#email").css("background-color", "#62f442");
+                $('#gomb').prop('disabled', false);
+            }else{
+                $("#email").css("background-color", "#f47442");
+                $('#gomb').prop('disabled', true);
+            }
+        });
+
 });
