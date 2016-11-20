@@ -1,34 +1,50 @@
-
 <form action="/register/bekuld" method="post">
-    Name: <input type="text" id="name" name="name"><br>
-    E-mail: <input type="email" id="email" name="email"><br>
-    Password: <input type="password" id="pass" name="pass"><br>
-    Password újra: <input type="password" id="pass2" name="pass2"><br>
-    Neme:
-    <select name="gender">
-        <option value="no">Nő</option>
-        <option value="ferfi">Férfi</option>
-    </select>
-    </br>Kor:
-    <input type="date" name="bday">
-    </br>Kit keresel:
-    <select name="looking">
-        <option value="not">Nőt</option>
-        <option value="ferfit">Férfit</option>
-    </select>
-    tól
-    <select name="tol">
-        <?php for( $i=18; $i<=100;$i++):?>
-            <option value="<?=$i?>"><?=$i?></option>
-        <?php endfor;?>
-    </select>
-    -
-    <select name="ig">
-        <?php for( $i=18; $i<=100;$i++):?>
-            <option value="<?=$i?>"><?=$i?></option>
-        <?php endfor;?>
-    </select>
-    ig
-    </br>
+    <div id="MainMenu">
+        <div id="parent">
+            <a href="#parent1" class="list-group-item list-group-item-success" data-toggle="collapse"
+               data-parent="#MainMenu">Account beállítások</a>
+
+            <div class="collapse" id="parent1" style="margin: 25px;">
+                Name: <input type="text" id="name" name="name"><br>
+                E-mail: <input type="email" id="email" name="email"><br>
+                Password: <input type="password" id="pass" name="pass"><br>
+                Password újra: <input type="password" id="pass2" name="pass2"><br>
+            </div>
+        </div>
+        <div id="parent">
+            <a href="#parent2" class="list-group-item list-group-item-success" data-toggle="collapse"
+               data-parent="#MainMenu">Szülő</a>
+
+            <div class="collapse" id="parent2" style="margin: 25px;">
+                Neme:
+                <select name="gender">
+                    <option value="no">Nő</option>
+                    <option value="ferfi">Férfi</option>
+                </select>
+                </br>Kor:
+                <input type="date" name="bday">
+                </br>Kit keresel:
+                <select name="looking">
+                    <option value="not">Nőt</option>
+                    <option value="ferfit">Férfit</option>
+                </select>
+                tól
+                <select name="tol">
+                    <?php for ($i = 18; $i <= 100; $i++): ?>
+                        <option value="<?= $i ?>"><?= $i ?></option>
+                    <?php endfor; ?>
+                </select>
+                -
+                <select name="ig">
+                    <?php for ($i = 18; $i <= 100; $i++): ?>
+                        <option value="<?= $i ?>"><?= $i ?></option>
+                    <?php endfor; ?>
+                </select>
+                ig
+                </br>
+            </div>
+        </div>
+    </div>
+
     <input id="gomb" type="submit">
 </form>
