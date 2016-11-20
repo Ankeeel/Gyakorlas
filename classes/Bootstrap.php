@@ -1,7 +1,7 @@
 <?php
 class Bootstrap{
     function __construct(){
-        $hiba = [];
+        $fails = [];
 
         $url = isset($_GET['_url'])?$_GET["_url"]:null;
         $url = explode('/',$url);
@@ -26,19 +26,24 @@ class Bootstrap{
                                 $controller->{$url[2]}();
                             }
                         }else{
-                            $hiba[] = 'nemlétező method';
+                            $fails[] = 'nemlétező method';
                         }
                     }
 
             }else{
-                $hiba[] = 'nem létező controller';
+                $fails[] = 'nem létező controller';
+            }
+            if(count($fails)>0){
+                foreach ($fails as $fail){
+                    echo $fail."<br/>";
+                }
             }
         }
         else {
-            /*include 'controllers/Dashboard.php';
-            $dashboard = new Dashboard();
-            include "models/DashboardModel.php";
-            $dashboardModel = new DashbordModel();*/
+            include 'controllers/DashboardController.php';
+            $dashboard = new DashboardController();
+            $dashboard->loadModel('Dashboard');
+            $dashboard->index();
         }
     }
 }
