@@ -1,4 +1,4 @@
-<form action="/register/bekuld" method="post">
+<form action="/settings/bekuld" method="post">
     <div id="MainMenu">
         <div id="parent">
             <a href="#parent1" class="list-group-item list-group-item-success" data-toggle="collapse"
@@ -6,9 +6,7 @@
 
             <div class="collapse" id="parent1" style="margin: 25px;">
                 Name: <input value="<?=$this->adatok->username?>" type="text" id="name" name="name"><br>
-                E-mail: <input type="email" id="email" name="email"><br>
-                Password: <input type="password" id="pass" name="pass"><br>
-                Password újra: <input type="password" id="pass2" name="pass2"><br>
+                E-mail: <input value="<?=$this->adatok->email?>" type="email" id="email" name="email"><br>
             </div>
         </div>
         <div id="parent">
@@ -18,15 +16,20 @@
             <div class="collapse" id="parent2" style="margin: 25px;">
                 Neme:
                 <select name="gender">
-                    <option value="no">Nő</option>
-                    <option value="ferfi">Férfi</option>
-                </select>
-                </br>Kor:
-                <input type="date" name="bday">
-                </br>Kit keresel:
+                    <?php foreach($this->genders as $gender) :?>
+                        <option value="<?=$gender['genderId']?>"><?=$gender['name']?></option>
+                    <?php endforeach; ?>
+                </select></br>
+
+                Kor: <input value="<?=$this->adatok->bday?>" type="date" name="bday"></br>
+                Város: <input value="<?=$this->adatok->city?>" type="text" id="city" name="city"><br>
+                Tanulmány: <input  value="<?=$this->adatok->school?>" type="text" id="school" name="school"><br>
+                Munkahely: <input value="<?=$this->adatok->job?>"  type="text" id="job" name="job"><br>
+                Kit keresel:
                 <select name="looking">
-                    <option value="not">Nőt</option>
-                    <option value="ferfit">Férfit</option>
+                    <?php foreach($this->genders as $gender) :?>
+                        <option value="<?=$gender['genderId']?>"><?=$gender['name']?></option>
+                    <?php endforeach; ?>
                 </select>
                 tól
                 <select name="tol">
@@ -41,7 +44,6 @@
                     <?php endfor; ?>
                 </select>
                 ig
-                </br>
             </div>
         </div>
     </div>

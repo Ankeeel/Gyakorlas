@@ -12,6 +12,8 @@ class RegisterController extends BaseController
 
     public function index()
     {
+        $this->view->genders = $this->model->getGender();
+
         $this->view->render('register', true);
     }
 
@@ -20,6 +22,5 @@ class RegisterController extends BaseController
         $this->model->regsave();
 
     }
-
 
 }

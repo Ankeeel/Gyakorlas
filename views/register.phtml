@@ -12,15 +12,20 @@
                 Password újra: <input type="password" id="pass2" name="pass2"><br>
                 Neme:
                     <select name="gender">
-                    <option value="no">Nő</option>
-                    <option value="ferfi">Férfi</option>
+                        <?php foreach($this->genders as $gender) :?>
+                            <option value="<?=$gender['genderId']?>"><?=$gender['name']?></option>
+                        <?php endforeach; ?>
                 </select>
                 </br>Kor:
                     <input type="date" name="bday">
+                Város: <input type="text" id="city" name="city"><br>
+                Tanulmány: <input type="text" id="school" name="school"><br>
+                Munkahely: <input type="text" id="job" name="job"><br>
                 </br>Kit keresel:
                 <select name="looking">
-                    <option value="not">Nőt</option>
-                    <option value="ferfit">Férfit</option>
+                 <?php foreach($this->genders as $gender) :?>
+                     <option value="<?=$gender['genderId']?>"><?=$gender['name']?></option>
+                 <?php endforeach; ?>
                 </select>
                     tól
                 <select name="tol">
