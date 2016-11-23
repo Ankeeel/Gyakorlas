@@ -13,11 +13,15 @@ class DashboardController extends BaseController{
     function index(){
         $adatok = $this->model->lista();
         $this->view->adat = $adatok;
+        die(var_dump($adatok));
         $this->view->render('dashboard');
+
     }
     
     public function logout(){
         Session::destroy();
         header('Location: /login');
     }
+
+
 }

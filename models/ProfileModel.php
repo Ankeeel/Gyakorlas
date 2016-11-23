@@ -24,11 +24,6 @@ class ProfileModel extends Model
             ));
         }
              header('Location: /profile/edit');
-}
-
-    public function dislike(){
-        $this->ertek--;
-        header('Location: /profile/edit');
     }
 
 }
