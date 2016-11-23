@@ -1,5 +1,8 @@
-<?php foreach($this->adat as $adatok) :?>
 <div class="row">
-    <div class="col-sm-4" style="background-color:lavender;"><?=$this->$adatok['username']?></div>
-</div>
+<?php foreach($this->users as $user) :?>
+
+    <div class="col-sm-4" style="background-color:lavender;"><?=$user['username']?></div>
+
 <?php endforeach; ?>
+
+</div>

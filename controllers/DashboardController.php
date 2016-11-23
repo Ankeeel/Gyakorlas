@@ -11,9 +11,8 @@ class DashboardController extends BaseController{
         }
     }
     function index(){
-        $adatok = $this->model->lista();
-        $this->view->adat = $adatok;
-        die(var_dump($adatok));
+        $users = $this->model->lista();
+        $this->view->users =  $users;
         $this->view->render('dashboard');
 
     }
