@@ -2,7 +2,7 @@
 
 class ApiController extends BaseController
 {
-    public function checkUser()
+    public function checkUserAction()
     {
         if ($this->model->check($_POST['email'])) {
             echo 'hiba';
@@ -11,7 +11,7 @@ class ApiController extends BaseController
         }
     }
 
-    public function search()
+    public function searchAction()
     {
         $users = $this->model->search();
         echo json_encode($users);

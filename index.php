@@ -14,6 +14,6 @@ include 'classes/View.php';
 Session::init();
 
 //példányosítom itt
-$database = new Database();
+
 $bootstrap = new Bootstrap();
 

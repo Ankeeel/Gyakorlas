@@ -100,3 +100,8 @@ $('#search').keyup(function(){
         }
     });
 });
+var szam = 0;
+$('#test').on('click',function () {
+   szam += 5;
+    $('.result').text(szam);
+});

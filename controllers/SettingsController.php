@@ -2,14 +2,14 @@
 
 class SettingsController extends BaseController
 {
-    public function personalSetting(){
+    public function personalSettingAction(){
 
         $this->view->genders = $this->model->getGender();
         $this->view->adatok = $this->model->personalData();
         $this->view->render('settings');
     }
 
-    public function bekuld()
+    public function bekuldAction()
     {
         $this->model->settingsSave();
     }

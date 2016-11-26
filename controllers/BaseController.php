@@ -3,6 +3,7 @@
 class BaseController
 {
     public $model;
+    public $view;
 
     function __construct()
     {

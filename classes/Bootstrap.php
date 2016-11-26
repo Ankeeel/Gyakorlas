@@ -17,13 +17,13 @@ class Bootstrap{
                 $controller->loadModel($url[1]);
 
                     if (isset($url[2]) && !empty($url[2])) { //megvizsgáljuk ,hogy van-e 2. url paraméter
-                        if(method_exists($controller,$url[2])) { //megvizsgáljuk ,hogy létezik -e az az action amit hívni próbálunk
+                        if(method_exists($controller,$url[2].'Action')) { //megvizsgáljuk ,hogy létezik -e az az action amit hívni próbálunk
 
                             if (isset($url[3]) && !empty($url[3])) {
-                                $controller->{$url[2]}($url[3]);
+                                $controller->{$url[2].'Action'}($url[3]);
                             }
                             else{
-                                $controller->{$url[2]}();
+                                $controller->{$url[2].'Action'}();
                             }
                         }else{
                             $fails[] = 'nemlétező method';
@@ -40,10 +40,13 @@ class Bootstrap{
             }
         }
         else {
-            include 'controllers/DashboardController.php';
-            $dashboard = new DashboardController();
-            $dashboard->loadModel('Dashboard');
-            $dashboard->index();
+            $ctrl = DEFAULT_CONTROLLER.'Controller';
+            $action = DEFAULT_ACTION.'Action';
+            include 'controllers/'.$ctrl.'.php';
+            $dashboard = new $ctrl();
+            $dashboard->loadModel(DEFAULT_CONTROLLER);
+            $dashboard->$action();
+
         }
     }
 }

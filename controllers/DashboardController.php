@@ -10,17 +10,16 @@ class DashboardController extends BaseController{
             header('Location: /login');
         }
     }
-    function index(){
+    function indexAction(){
         $users = $this->model->lista();
         $this->view->users =  $users;
         $this->view->render('dashboard');
 
     }
     
-    public function logout(){
+    public function logoutAction(){
         Session::destroy();
         header('Location: /login');
     }
-
 
 }
