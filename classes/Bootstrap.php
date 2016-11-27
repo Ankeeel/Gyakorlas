@@ -25,8 +25,8 @@ class Bootstrap{
                             else{
                                 $controller->{$url[2].'Action'}();
                             }
-                        }else{
-                            $fails[] = 'nemlétező method';
+                    }else{
+                        $fails[] = 'nemlétező method';
                         }
                     }
 

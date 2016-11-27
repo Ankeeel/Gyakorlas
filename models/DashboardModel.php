@@ -2,14 +2,17 @@
 
 class DashboardModel extends Model
 {
-  public function lista(){
-      $stmt = $this->db->prepare("SELECT * FROM users ");
-      $stmt->execute();
-      $data2 = [];
-      while($data = $stmt->fetch()){
-          $data2[]= $data;
+  public function lista()
+  {
+      if(count($_POST)>0){
+          var_dump($_POST);die;
       }
-      return $data2;
+      $stmt = $this->db->prepare("SELECT * FROM users,presetting WHERE id = userId");
+      $stmt->execute();
+      $asd = [];
+      while ($data = $stmt->fetch()) {
+          $asd[] = $data;
+      }
+      return $asd;
   }
-
 }

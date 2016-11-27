@@ -15,4 +15,10 @@ class Model
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function selfData(){
+        $stmt = $this->db->prepare("SELECT * FROM users,persetting WHERE id=userId AND id=:id");
+        $stmt->execute(array('id'=>Session::get('user')));
+        return $stmt->fetch(PDO::FETCH_OBJ);
+    }
 }
