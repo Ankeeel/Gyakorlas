@@ -1,6 +1,13 @@
 Random felhasználó generálása  :
-<select>
-    <?php for($i=1;$i<=100;$i++):?>
-        <option value="<?= $i ?>"><?= $i ?></option>
-    <?php endfor; ?>
-</select>
+<form action="/admin/generate" method="post">
+    <select name="darab">
+        <?php for ($i = 1; $i <= 100; $i++): ?>
+            <option value="<?= $i ?>"><?= $i ?></option>
+        <?php endfor; ?>
+    </select>
+    <input id="gomb" type="submit">
+</form>
+<?php foreach($this->uAdatok as $adatok): ?>
+    Név:<?=$adatok->username ?><br/>
+    Email:<?=$adatok->email ?><br/>
+<?php endforeach?>

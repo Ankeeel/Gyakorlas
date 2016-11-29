@@ -19,6 +19,5 @@ class BaseController
             $m = $nev . 'Model';
             $this->model = new $m();
         }
-
     }
 }
