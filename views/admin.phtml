@@ -7,7 +7,12 @@ Random felhasználó generálása  :
     </select>
     <input id="gomb" type="submit">
 </form>
-<?php foreach($this->uAdatok as $adatok): ?>
-    Név:<?=$adatok->username ?><br/>
-    Email:<?=$adatok->email ?><br/>
-<?php endforeach?>
+<?php foreach($this->uAdatok as $adatok): $date = DateTime::createFromFormat('Y M j H:i:s',$adatok->regDate);?>
+    <?php if($date->format("Y M j H:i") == date("Y M j H:i")):  ?>
+        Név:<?=$adatok->username ?><br/>
+        Email:<?=$adatok->email ?><br/>
+        RegDate:<?=$adatok->regDate ?><br/>
+        Súly:<?=$adatok->weight ?><br/>
+        Magasság:<?=$adatok->height ?><br/><br/>
+    <?php endif; ?>
+<?php endforeach;?>

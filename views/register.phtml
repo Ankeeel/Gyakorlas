@@ -10,38 +10,7 @@
                 E-mail: <input type="email" id="email" name="email"><br>
                 Password: <input type="password" id="pass" name="pass"><br>
                 Password újra: <input type="password" id="pass2" name="pass2"><br>
-                Neme:
-                    <select name="gender">
-                        <?php foreach($this->genders as $gender) :?>
-                            <option value="<?=$gender['genderId']?>"><?=$gender['name']?></option>
-                        <?php endforeach; ?>
-                </select>
-                </br>Kor:
-                    <input type="date" name="bday">
-                Város: <input type="text" id="city" name="city"><br>
-                Tanulmány: <input type="text" id="school" name="school"><br>
-                Munkahely: <input type="text" id="job" name="job"><br>
-                </br>Kit keresel:
-                <select name="looking">
-                 <?php foreach($this->genders as $gender) :?>
-                     <option value="<?=$gender['genderId']?>"><?=$gender['name']?></option>
-                 <?php endforeach; ?>
-                </select>
-                    tól
-                <select name="tol">
-                    <?php for ($i = 18; $i <= 100; $i++): ?>
-                        <option value="<?= $i ?>"><?= $i ?></option>
-                    <?php endfor; ?>
-                </select>
-                -
-                <select name="ig">
-                    <?php for ($i = 18; $i <= 100; $i++): ?>
-                        <option value="<?= $i ?>"><?= $i ?></option>
-                    <?php endfor; ?>
-                </select>
-                ig
-                </br>
-                <input id="gomb" type="submit">
+                <input type="submit" value="regisztrálok" class="btn btn-default navbar-btn">
             </form>
             <a href="/login" type="button"  class="btn btn-default navbar-btn">Login</a>
 

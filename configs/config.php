@@ -6,3 +6,7 @@ define('DB_SCHEMA','ricsi_db');
 
 define('DEFAULT_CONTROLLER','Dashboard');
 define('DEFAULT_ACTION','index');
+
+function dd($data){
+    var_dump($data);die;
+}
