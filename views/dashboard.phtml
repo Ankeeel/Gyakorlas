@@ -6,13 +6,13 @@
                data-parent="#MainKeres">Keresési feltétel</a>
             <div class="collapse" id="parent1" style="margin: 25px;">
 
-                <select name="tol">
+                <select name="ig">
                     <?php for($i=18;$i<100;$i++): ?>
                         <option <?= $this->self[0]->tol == $i ? 'selected' : '' ?> value="<?= $i ?>"><?= $i ?></option>
                     <?php endfor;?>
                 </select>
                 <spam> - </spam>
-                <select name="ig">
+                <select name="tol">
                     <?php for($i=18;$i<100;$i++): ?>
                         <option <?= $this->self[0]->ig == $i ? 'selected' : '' ?> value="<?= $i ?>"><?= $i ?></option>
                     <?php endfor;?>
