@@ -14,7 +14,6 @@ class ApiController extends BaseController
     public function searchAction()
     {
         $users = $this->model->search();
-        $data = $this->model->adatbazis();
         echo json_encode($users);
     }
 }

@@ -17,8 +17,8 @@ class Model
     }
 
     public function selfData(){
-        $stmt = $this->db->prepare("SELECT * FROM users,persetting WHERE id=userId AND id=:id");
-        $stmt->execute(array('id'=>Session::get('user')));
-        return $stmt->fetch(PDO::FETCH_OBJ);
+        $stmt = $this->db->prepare("SELECT * FROM users,persetting,looking WHERE users.id=persetting.userId AND users.id=looking.userId AND id=:id");
+        $stmt->execute(array('id' => Session::get('user')));
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 }

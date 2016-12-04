@@ -11,7 +11,10 @@ class SettingsController extends BaseController
 
     public function bekuldAction()
     {
+
         $this->model->settingsSave();
+
         header('Location: /settings/personalsetting');
+
     }
 }

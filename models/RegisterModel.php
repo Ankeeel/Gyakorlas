@@ -5,7 +5,7 @@ class RegisterModel extends Model
 {
     public function regsave()
     {
-        $date = date("Y M j G:i:s");
+        $date = date("Y-m-d");
         $stmt = $this->db->prepare("SELECT * FROM users WHERE email =:email");
         $stmt->execute(array(
             'email' => $_POST['email']

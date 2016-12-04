@@ -5,17 +5,17 @@ class SettingsModel extends Model
 {
     public function settingsSave()
     {
-            $stmt = $this->db->prepare("UPDATE users SET username=:username,email=:email,pass=:pass WHERE id=:id ");
+            $stmt = $this->db->prepare("UPDATE users SET username=:username,email=:email WHERE id=:id ");
             $stmt->execute(array(
                 'username' => $_POST['username'],
                 'email' => $_POST['email'],
-                'pass' => $_POST['pass']
+                'id' => Session::get('user')
             ));
 
             $stmt = $this->db->prepare("SELECT * FROM persetting WHERE userId=:id");
             $stmt->execute(array('id' => Session::get('user')));
             $stmt = $this->db->prepare("UPDATE persetting SET city=:city,job=:job,school=:school,gender=:gender,bday=:bday,
-                                        height=:height,weight=:weight,looking=:looking,eColor=:eColor,hColor=:hColor,smoking=:smoking,
+                                        height=:height,weight=:weight,eColor=:eColor,hColor=:hColor,smoking=:smoking,
                                         looklike=:looklike,hChild=:hChild WHERE userId=:userId ");
             $stmt->execute(array(
                 'city' => $_POST['city'],
@@ -35,11 +35,12 @@ class SettingsModel extends Model
 
         $stmt = $this->db->prepare("SELECT * FROM looking WHERE userId=:id");
         $stmt->execute(array('id' => Session::get('user')));
-        $stmt = $this->db->prepare("UPDATE looking SET oGender=:oGender,tol=:tol,ig=:ig");
+        $stmt = $this->db->prepare("UPDATE looking SET oGender=:oGender,tol=:tol,ig=:ig WHERE userId=:userId");
         $stmt->execute(array(
             'oGender'=> $_POST['oGender'],
             'tol'=> $_POST['tol'],
-            'ig'=> $_POST['ig']
+            'ig'=> $_POST['ig'],
+            'userId' => Session::get('user')
         ));
     }
 

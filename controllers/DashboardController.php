@@ -13,8 +13,7 @@ class DashboardController extends BaseController{
     function indexAction(){
         $this->view->self= $this->model->selfData();
         $this->view->genders= $this->model->getGender();
-        $users = $this->model->lista();
-        $this->view->users =  $users;
+        $this->view->adatok = $this->model->lista();
         $this->view->render('dashboard');
 
     }

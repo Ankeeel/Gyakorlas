@@ -4,20 +4,22 @@ class AdminModel extends Model
 {
     public function generate()
     {
-        $date = date("Y M j G:i:s");
+        $date = date("Y-m-d");
         $db = $_POST['darab'];
         $email = 'RicsiE';
         $oemail = $email;
-        $i = 0;
 
 
-        do {
-            $email = $oemail.$i;
-            $i++;
-        } while ($this->cheackName($email) == false);
 
 
         for ($i = 0; $i < $db; $i++) {
+            $age= rand(18,30);
+            $asd = date('Y-m-d', strtotime('-'.$age.'year'));
+            $j = 0;
+            do {
+                $email = $oemail.$j;
+                $j++;
+            } while ($this->cheackName($email) == false );
             $stmt = $this->db->prepare("INSERT INTO users (username,email,pass,regDate) VALUES (:username,:email,:pass,:regDate)");
             $stmt->execute(array(
                 'username' => 'RicsiU' . rand(1, 1000),
@@ -34,7 +36,7 @@ class AdminModel extends Model
                 'city' => '',
                 'job' => '',
                 'school' => '',
-                'bday' => '',
+                'bday' => $asd,
                 'height' => rand(50, 100),
                 'weight' => rand(50, 100),
                 'eColor' => '',
@@ -44,8 +46,9 @@ class AdminModel extends Model
                 'hChild' => '',
                 'userId' => $lastInsertId
             ));
-            $stmt = $this->db->prepare("INSERT INTO looking (tol,ig,oCity,oEColor,oHColor,oLooklike,online,hPicture,oSmoking,oHChild,userId)
-                                        VALUES (:tol,:ig,:oCity,:oEColor,:oHColor,:oLooklike,:online,:hPicture,:oSmoking,:oHChild,:userId)");
+
+            $stmt = $this->db->prepare("INSERT INTO looking (tol,ig,oCity,oEColor,oHColor,oLooklike,online,oSmoking,oHChild,userId)
+                                        VALUES (:tol,:ig,:oCity,:oEColor,:oHColor,:oLooklike,:online,:oSmoking,:oHChild,:userId)");
             $stmt->execute(array(
                 'tol' => '',
                 'ig' => '',
@@ -54,7 +57,6 @@ class AdminModel extends Model
                 'oHColor' => '',
                 'oLooklike' => '',
                 'online' => '',
-                'hPicture' => '',
                 'oSmoking' => '',
                 'oHChild' => '',
                 'userId' => $lastInsertId

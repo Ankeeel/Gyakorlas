@@ -1,41 +1,41 @@
+<?php //dd();?>
 <form action="/dashboard/index" method="post">
     <div id="MainKeres">
         <div id="parent">
             <a href="#parent1" class="list-group-item list-group-item-success" data-toggle="collapse"
                data-parent="#MainKeres">Keresési feltétel</a>
             <div class="collapse" id="parent1" style="margin: 25px;">
+
                 <select name="tol">
-                    <?php for ($i = 18; $i <= 100; $i++): ?>
-                        <option <?= $this->self->tol==$i?"selected":""?> value="<?= $i ?>"><?= $i ?></option>
-                    <?php endfor; ?>
+                    <?php for($i=18;$i<100;$i++): ?>
+                        <option <?= $this->self[0]->tol == $i ? 'selected' : '' ?> value="<?= $i ?>"><?= $i ?></option>
+                    <?php endfor;?>
                 </select>
+                <spam> - </spam>
                 <select name="ig">
-                    <?php for ($i = 18; $i <= 100; $i++): ?>
-                        <option <?= $this->self->ig==$i?"selected":""?>  value="<?= $i ?>"><?= $i ?></option>
-                    <?php endfor; ?>
+                    <?php for($i=18;$i<100;$i++): ?>
+                        <option <?= $this->self[0]->ig == $i ? 'selected' : '' ?> value="<?= $i ?>"><?= $i ?></option>
+                    <?php endfor;?>
                 </select>
-                <select name="looking">
-                    <?php foreach($this->genders as $gender) :?>
-                        <option value="<?=$gender['genderId']?>"><?=$gender['name']?></option>
-                    <?php endforeach; ?>
-                </select>
-                <select name="city">
-                   <option>asdasd</option>
-                    <option>Budapest</option>
-                    <option>debrecen</option>
-                </select>
-                <input type="checkbox">Online
+                <input value="küld" type="submit">
             </div>
         </div>
     </div>
-    <input value="küld" type="submit">
+
 </form>
 
 
 <div class="row">
-<?php foreach($this->users as $user) :?>
+<?php foreach($this->adatok as $adatok) :?>
 
-    <div class="col-sm-4" style="background-color:lavender;"><?=$user['username']?></div>
+    <div class="col-sm-6" style="background-color:lavender;">
+        <div class="col-sm-4" style="background-color:greenyellow;">
+        <?= $adatok->username?></br>
+        <?= $adatok->bday?></br>
+        <?= $adatok->city?></br>
+            </br>
+        </div>
+    </div>
 
 <?php endforeach; ?>
 
