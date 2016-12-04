@@ -19,6 +19,7 @@ class RegisterController extends BaseController
     public function bekuldAction()
     {
         $this->model->regsave();
+        header('Location: /dashboard');
     }
 
 }

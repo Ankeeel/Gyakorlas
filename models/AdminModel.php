@@ -44,8 +44,8 @@ class AdminModel extends Model
                 'hChild' => '',
                 'userId' => $lastInsertId
             ));
-            $stmt = $this->db->prepare("INSERT INTO looking (tol,ig,oCity,oEColor,oHColor,oLooklike,online,hPicture,oSmoking,hChild,userId)
-                                        VALUES (:tol,:ig,:oCity,:oEColor,:oHColor,:oLooklike,:online,:hPicture,:oSmoking,:hChild,:userId)");
+            $stmt = $this->db->prepare("INSERT INTO looking (tol,ig,oCity,oEColor,oHColor,oLooklike,online,hPicture,oSmoking,oHChild,userId)
+                                        VALUES (:tol,:ig,:oCity,:oEColor,:oHColor,:oLooklike,:online,:hPicture,:oSmoking,:oHChild,:userId)");
             $stmt->execute(array(
                 'tol' => '',
                 'ig' => '',
@@ -56,7 +56,7 @@ class AdminModel extends Model
                 'online' => '',
                 'hPicture' => '',
                 'oSmoking' => '',
-                'hChild' => '',
+                'oHChild' => '',
                 'userId' => $lastInsertId
             ));
         }

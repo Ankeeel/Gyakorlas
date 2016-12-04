@@ -48,19 +48,19 @@ class RegisterModel extends Model
                 'hChild' => '',
                 'userId' => $lastInsertId
             ));
-            $stmt = $this->db->prepare("INSERT INTO looking (tol,ig,oCity,oEColor,oHColor,oLooklike,online,hPicture,oSmoking,hChild,userId)
-                                        VALUES (:tol,:ig,:oCity,:oEColor,:oHColor,:oLooklike,:online,:hPicture,:oSmoking,:hChild,:userId)");
+            $stmt = $this->db->prepare("INSERT INTO looking (oGender,tol,ig,oCity,oEColor,oHColor,oLooklike,online,oSmoking,oHChild,userId)
+                                        VALUES (:oGender,:tol,:ig,:oCity,:oEColor,:oHColor,:oLooklike,:online,:oSmoking,:oHChild,:userId)");
             $stmt->execute(array(
-                'tol' => '',
-                'ig' => '',
+                'oGender'=>'',
+                'tol' => 18,
+                'ig' => 18,
                 'oCity' => '',
                 'oEColor' => '',
                 'oHColor' => '',
                 'oLooklike' => '',
                 'online' => '',
-                'hPicture' => '',
                 'oSmoking' => '',
-                'hChild' => '',
+                'oHChild' => '',
                 'userId' => $lastInsertId
             ));
         }

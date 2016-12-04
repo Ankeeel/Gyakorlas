@@ -3,50 +3,70 @@
         <div id="parent">
             <a href="#parent1" class="list-group-item list-group-item-success" data-toggle="collapse"
                data-parent="#MainMenu">Account beállítások</a>
+            <?php foreach ($this->adatok as $adatok): ?>
+                <div class="collapse" id="parent1" style="margin: 25px;">
+                    Name: <input value="<?= $adatok->username ?>" type="text" id="name" name="name"><br>
+                    E-mail: <input value="<?= $adatok->email ?>" type="email" id="email" name="email"><br>
+                </div>
+            <?php endforeach; ?>
 
-            <div class="collapse" id="parent1" style="margin: 25px;">
-                Name: <input value="<?=$this->adatok->username?>" type="text" id="name" name="name"><br>
-                E-mail: <input value="<?=$this->adatok->email?>" type="email" id="email" name="email"><br>
-            </div>
         </div>
+
         <div id="parent">
             <a href="#parent2" class="list-group-item list-group-item-success" data-toggle="collapse"
-               data-parent="#MainMenu">Szülő</a>
-
+               data-parent="#MainMenu">Personal Settings</a>
+            <?php foreach ($this->adatok as $adatok): ?>
             <div class="collapse" id="parent2" style="margin: 25px;">
-                Neme:
+                Nemed:
                 <select name="gender">
-                    <?php foreach($this->genders as $gender) :?>
-                        <option value="<?=$gender['genderId']?>"><?=$gender['name']?></option>
+                    <?php foreach ($this->genders as $gender) : ?>
+                        <option value="<?= $gender['genderId'] ?>"><?= $gender['name'] ?></option>
                     <?php endforeach; ?>
                 </select></br>
-
-                Kor: <input value="<?=$this->adatok->bday?>" type="date" name="bday"></br>
-                Város: <input value="<?=$this->adatok->city?>" type="text" id="city" name="city"><br>
-                Tanulmány: <input  value="<?=$this->adatok->school?>" type="text" id="school" name="school"><br>
-                Munkahely: <input value="<?=$this->adatok->job?>"  type="text" id="job" name="job"><br>
-                Kit keresel:
-                <select name="looking">
-                    <?php foreach($this->genders as $gender) :?>
-                        <option value="<?=$gender['genderId']?>"><?=$gender['name']?></option>
-                    <?php endforeach; ?>
-                </select>
-                tól
-                <select name="tol">
-                    <?php for ($i = 18; $i <= 100; $i++): ?>
-                        <option <?=$this->adatok->tol == $i?'selected':''?> value="<?= $i ?>"><?= $i ?></option>
-                    <?php endfor; ?>
-                </select>
-                -
-                <select name="ig">
-                    <?php for ($i = 18; $i <= 100; $i++): ?>
-                        <option  <?=$this->adatok->ig == $i?'selected':''?> value="<?= $i ?>"><?= $i ?></option>
-                    <?php endfor; ?>
-                </select>
-                ig
+                Kor: <input value="<?= $adatok->bday ?>" type="date" name="bday"></br>
+                Város: <input value="<?= $adatok->city ?>" type="text" id="city" name="city"><br>
+                Tanulmány: <input value="<?= $adatok->school ?>" type="text" id="school" name="school"><br>
+                Munkahely: <input value="<?= $adatok->job ?>" type="text" id="job" name="job"><br>
+                Súlyod: <input value="<?= $adatok->weight ?>" type="text" id="weight" name="weight"><br>
+                Magasságod: <input value="<?= $adatok->height ?>" type="text" id="height" name="height"><br>
+                Szemed színe: <input value="<?= $adatok->eColor ?>" type="text" id="eColor" name="eColor"><br>
+                Hajad színe: <input value="<?= $adatok->hColor ?>" type="text" id="hColor" name="hColor"><br>
+                Dohányzás: <input value="<?= $adatok->smoking ?>" type="text" id="smoking" name="smoking"><br>
+                Testalkat: <input value="<?= $adatok->looklike ?>" type="text" id="looklike" name="looklike"><br>
+                Gyerek: <input value="<?= $adatok->hChild ?>" type="text" id="hChild" name="hChild"><br>
             </div>
+            <?php endforeach; ?>
+        </div>
+        <div id="parent">
+            <a href="#parent3" class="list-group-item list-group-item-success" data-toggle="collapse"
+               data-parent="#MainMenu">Looking</a>
+            <?php foreach ($this->adatok as $adatok): ?>
+                <div class="collapse" id="parent3" style="margin: 25px;">
+                    Nemed:
+                    <select name="gender">
+                        <?php foreach ($this->genders as $gender) : ?>
+                            <option value="<?= $gender['genderId'] ?>"><?= $gender['name'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                        <select name="tol">
+                            <?php for ($i = 18; $i <= 100; $i++): ?>
+                                <option <?= $adatok->tol == $i ? 'selected' : '' ?> value="<?= $i ?>"><?= $i ?></option>
+                            <?php endfor; ?>
+                        </select>
+
+                    -
+
+                    <select name="ig">
+                        <?php for ($i = 18; $i <= 100; $i++): ?>
+                            <option
+                                <?= $adatok->ig == $i ? 'selected' : '' ?> value="<?= $i ?>"><?= $i ?></option>
+                        <?php endfor; ?>
+                    </select>
+                </div>
+            <?php endforeach; ?>
         </div>
     </div>
 
-    <input id="gomb" type="submit">
+
+  <br/>  <input Value="véglegesít" id="gomb" type="submit">
 </form>
