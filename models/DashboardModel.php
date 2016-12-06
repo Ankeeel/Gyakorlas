@@ -5,7 +5,7 @@ class DashboardModel extends Model
   public function lista()
   {
       if(count($_POST)>0) {
-          $stmt = $this->db->prepare("SELECT * FROM users,persetting WHERE id = userId AND bDay BETWEEN :tol_kor AND :ig_kor");
+          $stmt = $this->db->prepare("SELECT * FROM users,persetting WHERE id = userId AND (bday BETWEEN :tol_kor AND :ig_kor)");
           $stmt->execute(array(
               'tol_kor' => date('Y-m-d', strtotime('-' . $_POST['tol'] . 'year')),
               'ig_kor' => date('Y-m-d', strtotime('-' . $_POST['ig'] . 'year'))
