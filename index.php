@@ -10,6 +10,9 @@ include 'configs/config.php';
 include 'classes/Session.php';
 include 'classes/View.php';
 
+
+
+
 //sessiont idítja el, h működjön
 Session::init();
 
